@@ -78,13 +78,13 @@
             <script>
               function myFunction() {
                 
-                  //declare variables for employee information
+                 //declare variables for employee information
                   var lastname = document.getElementById("lnameInput");
                   var firstname = document.getElementById("fnameInput");
                   var rate = document.getElementById("wageInput");
                   var hours = document.getElementById("hoursInput");
                   var empName = firstname.value +""+ lastname.value;
-                  //Declare variables for Payroll Calculations
+                 //Declare variables for Payroll Calculations
                   var wageRate;
                   var hoursWorked;
                   var grossPay;
@@ -92,6 +92,33 @@
                   var fedTaxWith;
                   var stateTaxWith;
                   var totDeductions;
+                 //Declare Constants (withholding rates)
+                  const FED_RATE = 0.15; //federal rate
+                  const STATE_RATE = 0.034; //state rate
+                 //Convert the String to a Float using parseFloat() function for calculations
+                  wageRate = parseFloat(rate.value);
+                  hoursWorked = parseFloat(hours.value);
+                 //Calculate Gross Pay
+                  grossPay = hoursWorked * wageRate;
+                 //Calculate Federal Withholdings
+                  fedTaxWith = grossPay * FED_RATE;
+                 //Calculate State Withholdings
+                  stateTaxWith = grossPay * STATE_RATE;
+                 //Calculate Total Deductions
+                  totDeductions = fedTaxWith + stateTaxWith;
+                 //Calculate Net Pay
+                  netPay = grossPay - totDeductions;
+                 //Display Employee Information
+                  document.getElementById("firstlast").innerHTML = "Employee Name: " + empName.toUpperCase();
+                  document.getElementById("hoursWorked").innerHTML = "Hours Worked: " + hours.value;
+                  document.getElementById("hourlyWage").innerHTML = "Hourly Wage Rate: " + rate.value;
+                  
+                 //Display Payroll Calculation Results
+                  document.getElementById("grosspay").innerHTML = "Gross Pay: " + grossPay.toFixed(2);
+                  document.getElementById("fedwith").innerHTML = "Federal Income Tax: " + fedTaxWith.toFixed(2);
+                  document.getElementById("statewith").innerHTML = "State Income Tax: " + stateTaxWith.toFixed(2);
+                  document.getElementById("totalded").innerHTML = "Total Deductions: " + totDeductions.toFixed(2);
+                  document.getElementById("netpay").innerHTML = "Net Pay: " + netPay.toFixed(2);
               } //end of myfunction
           </script>  
      </form>
