@@ -5,8 +5,8 @@
       LIS 2360:  Web Application Development
       Lesson 4 - Project 2
 
-      Author: 
-      Date:   
+      Author: Connor Griffin
+      Date: 6/10/2015
 
       Filename: index.htm
    -->
@@ -14,7 +14,7 @@
    <meta name="viewport" content="width=device-width,initial-scale=1.0">
    <title>Lesson 4 - Project #2</title>
    <link rel="stylesheet" href="styles.css" />
-    
+   <script src="modernizr.custom.05819.js">            </script>
 </head>
 
 <body>
@@ -52,24 +52,48 @@
           <fieldset id="employeeinfo">
             <legend>Employee Summary</legend>
              <label>                  
-                 
+                 <p id ="firstlast"></p>
+                 <p id ="fname"></p>
+                 <p id ="hoursWorked"></p>
+                 <p id ="hourlyWage"></p>
              </label>              
           </fieldset>
             
           <fieldset id="calculationinfo">
             <legend>Calculations</legend>
              <label>                  
-                 
+                 <p id ="grosspay"></p>
+                 <p id ="fedwith"></p>
+                 <p id ="statewith"></p>
+                 <p id ="totalded"></p>
+                 <p id ="netpay"></p>
              </label>              
           </fieldset>
             
         </fieldset>
           
         <fieldset id="calculatebutton">
-          <button type="button"  > Calculate! </button>
+          <button type="button" onclick="myFunction()"> Calculate! </button>
         </fieldset>
-    
- 
+            <script>
+              function myFunction() {
+                
+                  //declare variables for employee information
+                  var lastname = document.getElementById("lnameInput");
+                  var firstname = document.getElementById("fnameInput");
+                  var rate = document.getElementById("wageInput");
+                  var hours = document.getElementById("hoursInput");
+                  var empName = firstname.value +""+ lastname.value;
+                  //Declare variables for Payroll Calculations
+                  var wageRate;
+                  var hoursWorked;
+                  var grossPay;
+                  var netPay;
+                  var fedTaxWith;
+                  var stateTaxWith;
+                  var totDeductions;
+              } //end of myfunction
+          </script>  
      </form>
   </article>   
     
